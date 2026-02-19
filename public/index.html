@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mini MMO Pokemon</title>
+</head>
+<body>
+
+<h1>Mini Pocket MMO</h1>
+
+<input id="username" placeholder="Nhập tên">
+<button onclick="register()">Đăng ký</button>
+
+<pre id="output"></pre>
+
+<script>
+function register(){
+  let username = document.getElementById("username").value;
+
+  fetch("/register",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({username})
+  })
+  .then(res=>res.json())
+  .then(data=>{
+    document.getElementById("output").innerText =
+      JSON.stringify(data,null,2);
+  });
+}
+</script>
+
+</body>
+</html>
