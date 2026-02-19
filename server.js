@@ -32,5 +32,4 @@ app.get("/player/:username", (req, res) => {
 });
 
 app.listen(3000, () => {
-  console.log("Server chạy tại cổng 3000");
-});
+  console
